@@ -1,0 +1,1117 @@
+{
+    "root": true,
+    "env": {
+        "es6": true,
+        "node": true,
+        "browser": false,
+        // Possible future addons
+        "mocha": false,
+        "mongo": false,
+        "jquery": false
+    },
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "globals": {},
+    "parserOptions": {
+        "ecmaVersion": 10 // Use ECMAScript 2019 stardart
+    },
+    "reportUnusedDisableDirectives": true,
+    "rules": {
+        // Rule list : https://eslint.org/docs/rules/
+        // Rules parameters :
+        // 0 = off
+        // 1 = warn
+        // 2 = error
+        // For some rules, an extended configuration can be provided.
+        // In this case, use an array: [(0-1-2), ... , (param_n)]
+        // Tip: if you don"t know what triggered a warning/an error, go look up the associated rule on ESlint website.
+        // POSSIBLE ERRORS
+        // https://eslint.org/docs/rules/#possible-errors
+        "for-direction": 2,
+        "getter-return": [
+            2,
+            {
+                "allowImplicit": false
+            }
+        ],
+        "no-async-promise-executor": 2,
+        "no-await-in-loop": 2,
+        "no-compare-neg-zero": 2,
+        "no-cond-assign": [
+            2,
+            "always"
+        ],
+        // Report use of console.log --> use custom logger instead
+        "no-console": 0,
+        "no-constant-condition": [
+            2,
+            {
+                "checkLoops": true
+            }
+        ],
+        "no-control-regex": 2,
+        // Signal if the debugger is launched via the "debugger;" statements. (Turn this rule ON in production)
+        "no-debugger": 2,
+        "no-dupe-args": 2,
+        "no-dupe-else-if": 2,
+        "no-dupe-keys": 2,
+        "no-duplicate-case": 2,
+        // Will warns you if a block is empty (comments are considered code) // (can be enable to overlook empty "catch" clauses)
+        "no-empty": [
+            1,
+            {
+                "allowEmptyCatch": false
+            }
+        ],
+        // Will warns you when an empty pattern is used in a RegEx. /!\ WARNING /!\ Not reported when used in a RegEx Object !(e.g.: new RegExp ("^abc[]")--> No error)
+        "no-empty-character-class": 2,
+        "no-ex-assign": 2,
+        "no-extra-boolean-cast": 1,
+        // Restrict the "overuse" of parenthesis. A value set to "false" in the param object deactivate the rule check.
+        "no-extra-parens": [
+            0,
+            "all",
+            {
+                "conditionalAssign": false,
+                "returnAssign": false,
+                "nestedBinaryExpressions": true,
+                "ignoreJSX": "all",
+                "enforceForArrowConditionals": false
+            }
+        ],
+        "no-extra-semi": 1,
+        "no-func-assign": 2,
+        "no-import-assign": 2,
+        "no-inner-declarations": [
+            2,
+            "both"
+        ],
+        // Check invalid strings in RegEx constructor.
+        "no-invalid-regexp": [
+            2,
+            {
+                "allowConstructorFlags": [
+                    "u",
+                    "y"
+                ]
+            }
+        ],
+        "no-irregular-whitespace": [
+            2,
+            {
+                "skipStrings": false,
+                "skipComments": false,
+                "skipRegExps": false,
+                "skipTemplates": false
+            }
+        ],
+        "no-misleading-character-class": 2,
+        "no-obj-calls": 2,
+        "no-prototype-builtins": 2,
+        "no-regex-spaces": 1,
+        "no-setter-return": 2,
+        "no-sparse-arrays": 2,
+        "no-template-curly-in-string": 1,
+        "no-unexpected-multiline": 2,
+        "no-unreachable": 1,
+        "no-unsafe-finally": 2,
+        "no-unsafe-negation": 2,
+        // IN ALPHA  "no-useless-backreference": 0,
+        "require-atomic-updates": 2,
+        "use-isnan": 2,
+        "valid-typeof": [
+            2,
+            {
+                "requireStringLiterals": true
+            }
+        ],
+        // BEST PRACTICES
+        // https://eslint.org/docs/rules/#best-practices
+        "accessor-pairs": [
+            1,
+            {
+                "setWithoutGet": true,
+                "getWithoutSet": false,
+                "enforceForClassMembers": false
+            }
+        ],
+        "array-callback-return": [
+            2,
+            {
+                "allowImplicit": false
+            }
+        ],
+        "block-scoped-var": 1,
+        // To add some exception to this rule, you can add function names to ignore like that : [1, { "exceptMethods": ["foo", "foo2", "foo3"]}]
+        "class-methods-use-this": 1,
+        // Will Warns when the maximum cyclomatic complexity limit is reached.
+        "complexity": [
+            1,
+            {
+                "max": 20
+            }
+        ],
+        "consistent-return": [
+            2,
+            {
+                "treatUndefinedAsUnspecified": false
+            }
+        ],
+        "curly": [
+            1,
+            "multi-or-nest"
+        ],
+        "default-case": 1,
+        // IN ALPHA "default-case-last": 2,
+        "default-param-last": 1,
+        "dot-location": [
+            1,
+            "property"
+        ],
+        "dot-notation": [
+            1,
+            {
+                "allowKeywords": true
+            }
+        ],
+        "eqeqeq": [
+            2,
+            "always"
+        ],
+        "grouped-accessor-pairs": 1,
+        "guard-for-in": 1,
+        "max-classes-per-file": [
+            1,
+            1
+        ],
+        // Will warns if "alert, prompt,confirm" functions are detected in code. Turn this rule ON in production.
+        "no-alert": 2,
+        "no-caller": 2,
+        "no-case-declarations": 2,
+        "no-constructor-return": 2,
+        "no-div-regex": 1,
+        "no-else-return": [
+            1,
+            {
+                "allowElseIf": true
+            }
+        ],
+        "no-empty-function": 1,
+        "no-empty-pattern": 2,
+        "no-eq-null": 2,
+        "no-eval": [
+            2,
+            {
+                "allowIndirect": false
+            }
+        ],
+        "no-extend-native": 2,
+        "no-extra-bind": 1,
+        "no-extra-label": 1,
+        "no-fallthrough": [
+            1,
+            {
+                "commentPattern": "[Bb]reak[\\s\\w]*omitted|[Ff]alltrough|[Nn]o[\\s\\w]*([Bb]reak|[Tt]hrow|[Rr]eturn)"
+            }
+        ],
+        "no-floating-decimal": 1,
+        "no-global-assign": 2,
+        "no-implicit-coercion": [
+            1,
+            {
+                "allow": [
+                    "!!",
+                    "~"
+                ]
+            }
+        ],
+        "no-implicit-globals": 2,
+        "no-implied-eval": 2,
+        "no-invalid-this": 2,
+        "no-iterator": 2,
+        "no-labels": 2,
+        "no-lone-blocks": 1,
+        "no-loop-func": 2,
+        // Will warn when hard-coded values are found in the code, and should be replaced by constants.
+        "no-magic-numbers": [
+            0,
+            {
+                "ignore": [
+                    1
+                ],
+                "ignoreArrayIndexes": true,
+                "enforceConst": true,
+                "detectObjects": false
+            }
+        ],
+        "no-multi-spaces": [
+            1,
+            {
+                "ignoreEOLComments": false,
+                "exceptions": {
+                    "Property": false,
+                    "BinaryExpression": false,
+                    "VariableDeclarator": false,
+                    "ImportDeclaration": false
+                }
+            }
+        ],
+        "no-multi-str": 1,
+        "no-new": 2,
+        "no-new-func": 2,
+        "no-new-wrappers": 2,
+        "no-octal": 2,
+        "no-octal-escape": 2,
+        "no-param-reassign": [
+            2,
+            {
+                "props": false
+            }
+        ],
+        "no-proto": 1,
+        "no-redeclare": [
+            2,
+            {
+                "builtinGlobals": true
+            }
+        ],
+        // Used to restrict the use of some properties inside an Object. You can specify a custom message with it.
+        "no-restricted-properties": 0,
+        "no-return-assign": [
+            2,
+            "always"
+        ],
+        "no-return-await": 1,
+        "no-script-url": 2,
+        "no-self-assign": [
+            2,
+            {
+                "props": true
+            }
+        ],
+        "no-self-compare": 2,
+        "no-sequences": 2,
+        "no-throw-literal": 2,
+        "no-unmodified-loop-condition": 2,
+        "no-unused-expressions": 1,
+        "no-unused-labels": 1,
+        "no-useless-call": 1,
+        "no-useless-catch": 2,
+        "no-useless-concat": 1,
+        "no-useless-escape": 1,
+        "no-useless-return": 1,
+        // Disable the use of "void" operator.
+        "no-void": 0,
+        // Used to warn the utilization of some terms like "TODO" or "FIXME" in comments. Enable if you want to spot those terms in your code.
+        "no-warning-comments": [
+            0,
+            {
+                "terms": [
+                    "TODO",
+                    "FIXME",
+                    "XXX",
+                    "!!!",
+                    "BUG",
+                    "DEBUG",
+                    "BROKEN",
+                    "ALERT",
+                    "TODOC"
+                ],
+                "location": "start"
+            }
+        ],
+        "no-with": 2,
+        // Will warns when a number capture group is used instead of a names one. -- Used from ECMAScript 2018 --> DISABLE for older versions!
+        "prefer-named-capture-group": 0,
+        "prefer-promise-reject-errors": [
+            1,
+            {
+                "allowEmptyReject": false
+            }
+        ],
+        "prefer-regex-literals": 1,
+        "radix": [
+            1,
+            "always"
+        ],
+        "require-await": 1,
+        // Notify RegEx missing the "u" flag. If you intend to compare Unicode characters, enable this setting to warn possible coding oversights.
+        "require-unicode-regexp": 0,
+        "vars-on-top": 1,
+        "wrap-iife": [
+            2,
+            "any",
+            {
+                "functionPrototypeMethods": true
+            }
+        ],
+        // Control the use of "yoda-like" conditions (e.g. (5 > foo) instead of (foo < 5), ...)
+        "yoda": [
+            1,
+            "never"
+        ],
+        // STRIC MODE
+        // https://eslint.org/docs/rules/#strict-mode
+        // Force the use of strict mode in all the project.
+        "strict": [
+            2,
+            "safe"
+        ],
+        // VARIABLES
+        // https://eslint.org/docs/rules/#variables
+        // Force (or not)  the initialization of variables when they are declared.
+        "init-declarations": 0,
+        "no-delete-var": 2,
+        "no-label-var": 2,
+        // Allows to specify global variable names that you don’t want to use in your application.
+        "no-restricted-globals": [
+            2,
+            "event",
+            "fdescribe"
+        ],
+        // Report shadowed names in code.
+        "no-shadow": [
+            1,
+            {
+                "builtinGlobals": true,
+                "hoist": "functions"
+            }
+        ],
+        "no-shadow-restricted-names": 2,
+        "no-undef": [
+            2,
+            {
+                "typeof": true
+            }
+        ],
+        // Prevent variable initialization to "undefined" (basic behavior of variables when not initialized)
+        "no-undef-init": 1,
+        // Restrict the use of the "undefined" keyword
+        "no-undefined": 0,
+        // Disable for typescript rule
+        "no-unused-vars": [
+            0,
+            {
+                "vars": "all",
+                "args": "all",
+                "ignoreRestSiblings": false,
+                "argsIgnorePattern": "^_",
+                "caughtErrors": "all"
+            }
+        ],
+        "no-use-before-define": [
+            2,
+            {
+                "functions": false,
+                "classes": true,
+                "variables": true
+            }
+        ],
+        // NODE.JS AND COMMONJS
+        // https://eslint.org/docs/rules/#nodejs-and-commonjs
+        // Watch for "possible" errors in function callbacks. This rule will activate for the keywords inside the array. See documentation.
+        "callback-return": [
+            1,
+            [
+                "callback",
+                "cb",
+                "next",
+                "done",
+                "send.error",
+                "send.success"
+            ]
+        ],
+        "global-require": 1,
+        "handle-callback-err": [
+            1,
+            "^.*(e|E)rr"
+        ],
+        "no-buffer-constructor": 2,
+        "no-mixed-requires": [
+            1,
+            {
+                "grouping": false,
+                "allowCall": true
+            }
+        ],
+        "no-new-require": 2,
+        "no-path-concat": 1,
+        // Will warn if process.env directive is used.
+        "no-process-env": 0,
+        "no-process-exit": 2,
+        // Disable the usage of some modules.
+        "no-restricted-modules": 0,
+        "no-sync": [
+            1,
+            {
+                "allowAtRootLevel": true
+            }
+        ],
+        // STYLISTIC ISSUES
+        // https://eslint.org/docs/rules/#stylistic-issues
+        "array-bracket-newline": [
+            1,
+            "consistent"
+        ],
+        "array-bracket-spacing": [
+            1,
+            "never",
+            {
+                "singleValue": false,
+                "objectsInArrays": false,
+                "arraysInArrays": false
+            }
+        ],
+        "array-element-newline": [
+            1,
+            "consistent"
+        ],
+        "block-spacing": [
+            1,
+            "always"
+        ],
+        "brace-style": [
+            1,
+            "1tbs",
+            {
+                "allowSingleLine": true
+            }
+        ],
+        "camelcase": [
+            1,
+            {
+                "properties": "always",
+                "ignoreDestructuring": false,
+                "ignoreImports": false
+            }
+        ],
+        // First character in comments must be an uppercase
+        "capitalized-comments": [
+            0,
+            "always",
+            {
+                "ignoreInlineComments": false,
+                "ignoreConsecutiveComments": false
+            }
+        ],
+        "comma-dangle": [
+            1,
+            "always-multiline"
+        ],
+        "comma-spacing": [
+            1,
+            {
+                "before": false,
+                "after": true
+            }
+        ],
+        "comma-style": [
+            1,
+            "last"
+        ],
+        "computed-property-spacing": [
+            1,
+            "never"
+        ],
+        "consistent-this": [
+            1,
+            "that",
+            "self",
+            "me",
+            "context"
+        ],
+        "eol-last": [
+            1,
+            "always"
+        ],
+        "func-call-spacing": [
+            1,
+            "never"
+        ],
+        // Checks if functions assigned to a variable have both the same name.
+        "func-name-matching": 0,
+        "func-names": [
+            1,
+            "as-needed",
+            {
+                "generators": "as-needed"
+            }
+        ],
+        // Force to only use function expressions or function declarations.
+        "func-style": 0,
+        "function-call-argument-newline": [
+            1,
+            "consistent"
+        ],
+        "function-paren-newline": [
+            1,
+            "consistent"
+        ],
+        // Prohibits the use of some function names.
+        "id-blacklist": [
+            0,
+            "data",
+            "err",
+            "e",
+            "cb",
+            "callback"
+        ],
+        // Define min and max length for variables & properties names.
+        "id-length": [
+            0,
+            {
+                "min": 3,
+                "properties": "always"
+            }
+        ],
+        // Force functions, var, classes, etc. to follow a defined naming convention pattern.
+        "id-match": 0,
+        "implicit-arrow-linebreak": [
+            1,
+            "beside"
+        ],
+        "indent": [
+            1,
+            4,
+            {
+                "SwitchCase": 1,
+                "VariableDeclarator": 1,
+                "outerIIFEBody": 1,
+                "MemberExpression": 1,
+                "FunctionDeclaration": {
+                    "parameters": 1,
+                    "body": 1
+                },
+                "FunctionExpression": {
+                    "body": 1,
+                    "parameters": 1
+                },
+                "CallExpression": {
+                    "arguments": 1
+                },
+                "ArrayExpression": 1,
+                "ObjectExpression": 1,
+                "ImportDeclaration": 1,
+                "flatTernaryExpressions": false,
+                "ignoreComments": false
+            }
+        ],
+        "jsx-quotes": [
+            1,
+            "prefer-double"
+        ],
+        "key-spacing": [
+            1,
+            {
+                "beforeColon": false,
+                "afterColon": true,
+                "mode": "strict"
+            }
+        ],
+        "keyword-spacing": [
+            1,
+            {
+                "before": true,
+                "after": true
+            }
+        ],
+        // Define comment position in code
+        "line-comment-position": 0,
+        // Verify files EOL character is the selected type ("CRLF" on Windows or "LF" on Unix systems).
+        // /!\ => Better to handle this at your version control layer, when you commit / retrieve files from your repository.
+        "linebreak-style": 0,
+        // Manage comment placements, new lines before/after and spacings
+        "lines-around-comment": 0,
+        "lines-between-class-members": [
+            1,
+            "always",
+            {
+                "exceptAfterSingleLine": false
+            }
+        ],
+        // Define maximum nesting. Warns if the limit is exceeded.
+        "max-depth": [
+            1,
+            15
+        ],
+        // Define maximum line length (in characters). Warns if the limit is exceeded.
+        "max-len": [
+            0,
+            {
+                "code": 120,
+                "ignoreUrls": true,
+                "ignoreRegExpLiterals": true
+            }
+        ],
+        // Define maximum number of lines per file (). Warns if the limit is exceeded.
+        "max-lines": 0,
+        // Define maximum number of lines per functions. Warns if the limit is exceeded. (Complementary to "max-statements").
+        "max-lines-per-function": 0,
+        "max-nested-callbacks": [
+            1,
+            {
+                "max": 15
+            }
+        ],
+        // Define maximum number of parameters per functions. Warns if the limit is exceeded.
+        "max-params": 0,
+        // Define maximum number of lines per functions. Warns if the limit is exceeded. (Complementary to "max-lines-per-function").
+        "max-statements": 0,
+        // Control the maximum number of statements allowed on a line.
+        "max-statements-per-line": [
+            0,
+            {
+                "max": 3
+            }
+        ],
+        // Impose guidelines for multi-line comments.
+        "multiline-comment-style": 0,
+        // Impose redaction style for ternary expressions.
+        "multiline-ternary": [
+            1,
+            "never"
+        ],
+        "new-cap": [
+            2,
+            {
+                "newIsCap": true,
+                "capIsNew": true,
+                "properties": true,
+                "capIsNewExceptions": [
+                    "Router" // Exception for the "old constructor method" used by Express.Router to create a Router Object.
+                ]
+            }
+        ],
+        "new-parens": 2,
+        "newline-per-chained-call": [
+            1,
+            {
+                "ignoreChainWithDepth": 2
+            }
+        ],
+        "no-array-constructor": 2,
+        // Restrict bitwise operator usage.
+        "no-bitwise": [
+            1,
+            {
+                "int32Hint": false
+            }
+        ],
+        "no-continue": 1,
+        // Control inline comments
+        "no-inline-comments": 0,
+        "no-lonely-if": 1,
+        "no-mixed-operators": [
+            1,
+            {
+                "groups": [
+                    [
+                        "+",
+                        "-",
+                        "*",
+                        "/",
+                        "%",
+                        "**"
+                    ],
+                    [
+                        "&",
+                        "|",
+                        "^",
+                        "~",
+                        "<<",
+                        ">>",
+                        ">>>"
+                    ],
+                    [
+                        "==",
+                        "!=",
+                        "===",
+                        "!==",
+                        ">",
+                        ">=",
+                        "<",
+                        "<="
+                    ],
+                    [
+                        "&&",
+                        "||"
+                    ],
+                    [
+                        "in",
+                        "instanceof"
+                    ]
+                ],
+                "allowSamePrecedence": true
+            }
+        ],
+        "no-mixed-spaces-and-tabs": 1,
+        "no-multi-assign": 1,
+        "no-multiple-empty-lines": [
+            0,
+            {
+                "max": 15,
+                "maxBOF": 1,
+                "maxEOF": 2
+            }
+        ],
+        "no-negated-condition": 1,
+        "no-nested-ternary": 1,
+        "no-new-object": 1,
+        // Restrict usage of unary operators "++" and "--"
+        "no-plusplus": 0,
+        // Disable usage of some JS features.
+        "no-restricted-syntax": [
+            1,
+            {
+                "selector": "SequenceExpression",
+                "message": "The comma operator is confusing and a common mistake.\nPlease don't use it."
+            }
+        ],
+        "no-tabs": 1,
+        // Disable ternary operators.
+        "no-ternary": 0,
+        "no-trailing-spaces": [
+            1,
+            {
+                "skipBlankLines": false,
+                "ignoreComments": false
+            }
+        ],
+        "no-underscore-dangle": [
+            0,
+            {
+                "allowAfterThis": true,
+                "allowAfterSuper": true,
+                "enforceInMethodNames": false
+            }
+        ],
+        "no-unneeded-ternary": [
+            1,
+            {
+                "defaultAssignment": false
+            }
+        ],
+        "no-whitespace-before-property": 2,
+        // Control single line statement position. Useless when "curly" is configured to "all"
+        "nonblock-statement-body-position": [
+            1,
+            "below"
+        ],
+        "object-curly-newline": [
+            1,
+            {
+                "ObjectExpression": {
+                    "multiline": true,
+                    "minProperties": 2,
+                    "consistent": true
+                },
+                "ObjectPattern": {
+                    "multiline": true,
+                    "minProperties": 5,
+                    "consistent": true
+                },
+                "ImportDeclaration": {
+                    "multiline": true,
+                    "minProperties": 4,
+                    "consistent": true
+                },
+                "ExportDeclaration": {
+                    "multiline": true,
+                    "minProperties": 4,
+                    "consistent": true
+                }
+            }
+        ],
+        "object-curly-spacing": [
+            1,
+            "always"
+        ],
+        "object-property-newline": [
+            1,
+            {
+                "allowAllPropertiesOnSameLine": true
+            }
+        ],
+        // Force variables initialization to be made all in 1 line, or 1 per line.
+        "one-var": 0,
+        // Force new line or not when declaring multiple variables on one line
+        "one-var-declaration-per-line": 0,
+        // Control usage of shorthand operator assignment (like "x+=3")
+        "operator-assignment": 0,
+        "operator-linebreak": [
+            1,
+            "after"
+        ],
+        // Use padding inside blocks of code.
+        "padded-blocks": 0,
+        // Use padding between specific code lines
+        "padding-line-between-statements": 0,
+        "prefer-exponentiation-operator": 0,
+        // Control the use of object spreads. FOR ES2018 (ES9) OR HIGHER ONLY!
+        "prefer-object-spread": 1,
+        "quote-props": [
+            1,
+            "always"
+        ],
+        // Control usage of single/doubles quotes and back-tick quotes to create strings
+        "quotes": [
+            1,
+            "double",
+            {
+                "avoidEscape": true,
+                "allowTemplateLiterals": false
+            }
+        ],
+        "semi": [
+            1,
+            "always",
+            {
+                "omitLastInOneLineBlock": true
+            }
+        ],
+        "semi-spacing": [
+            1,
+            {
+                "before": false,
+                "after": true
+            }
+        ],
+        "semi-style": [
+            1,
+            "last"
+        ],
+        // Ask for object keys to be sorted alphabetically.
+        "sort-keys": [
+            0,
+            "asc",
+            {
+                "caseSensitive": false,
+                "natural": true
+            }
+        ],
+        // Sort variables alphabetically
+        "sort-vars": [
+            0,
+            {
+                "ignoreCase": true
+            }
+        ],
+        "space-before-blocks": [
+            1,
+            {
+                "functions": "always",
+                "keywords": "always",
+                "classes": "always"
+            }
+        ],
+        "space-before-function-paren": [
+            1,
+            {
+                "anonymous": "always",
+                "named": "never",
+                "asyncArrow": "always"
+            }
+        ],
+        "space-in-parens": [
+            1,
+            "never"
+        ],
+        "space-infix-ops": [
+            1,
+            {
+                "int32Hint": false
+            }
+        ],
+        "space-unary-ops": [
+            1,
+            {
+                "words": true,
+                "nonwords": false,
+                "overrides": {}
+            }
+        ],
+        "spaced-comment": [
+            1,
+            "always",
+            {
+                "exceptions": [
+                    "-",
+                    "+",
+                    "*",
+                    "_-",
+                    "-_",
+                    "\\"
+                ]
+            }
+        ],
+        "switch-colon-spacing": [
+            1,
+            {
+                "after": true,
+                "before": false
+            }
+        ],
+        "template-tag-spacing": [
+            1,
+            "never"
+        ],
+        // Ask for Unicode Byte Order Mark (BOM) on first line or not
+        "unicode-bom": 0,
+        "wrap-regex": 1,
+        // ECMASCRIPT 6
+        // https://eslint.org/docs/rules/#ecmascript-6
+        "arrow-body-style": [
+            1,
+            "as-needed",
+            {
+                "requireReturnForObjectLiteral": true
+            }
+        ],
+        "arrow-parens": [
+            1,
+            "always"
+        ],
+        "arrow-spacing": [
+            1,
+            {
+                "before": true,
+                "after": true
+            }
+        ],
+        "constructor-super": 2,
+        "generator-star-spacing": [
+            1,
+            {
+                "before": false,
+                "after": true
+            }
+        ],
+        "no-class-assign": 2,
+        "no-confusing-arrow": [
+            1,
+            {
+                // DO NOT use with Prettier (code formatter)s!
+                "allowParens": true
+            }
+        ],
+        "no-const-assign": 2,
+        "no-dupe-class-members": 2,
+        "no-duplicate-imports": [
+            1,
+            {
+                "includeExports": true
+            }
+        ],
+        "no-new-symbol": 2,
+        "no-restricted-exports": [
+            0,
+            {
+                "restrictedNamedExports": []
+            }
+        ],
+        // Restrict module importations (just like the "no-restricted-modules" rule)
+        "no-restricted-imports": 0,
+        "no-this-before-super": 2,
+        "no-useless-computed-key": [
+            1,
+            {
+                "enforceForClassMembers": true
+            }
+        ],
+        "no-useless-constructor": 1,
+        "no-useless-rename": [
+            1,
+            {
+                "ignoreDestructuring": false,
+                "ignoreImport": false,
+                "ignoreExport": false
+            }
+        ],
+        "no-var": 1,
+        "object-shorthand": [
+            1,
+            "always",
+            {
+                "avoidQuotes": true,
+                "ignoreConstructors": true,
+                "avoidExplicitReturnArrows": true
+            }
+        ],
+        "prefer-arrow-callback": [
+            1,
+            {
+                "allowNamedFunctions": false,
+                "allowUnboundThis": true
+            }
+        ],
+        "prefer-const": [
+            1,
+            {
+                "destructuring": "any",
+                "ignoreReadBeforeAssign": false
+            }
+        ],
+        // Enforce object and array destructuring. /!\ WARNING /!\ => Rule may be unstable with arrays!
+        "prefer-destructuring": [
+            0,
+            {
+                "object": true,
+                "array": false
+            }
+        ],
+        "prefer-numeric-literals": 1,
+        // Use rest syntax (ES6 or later)
+        "prefer-rest-params": 1,
+        // Use spread syntax (ES6 or later)
+        "prefer-spread": 1,
+        "prefer-template": 1,
+        "require-yield": 2,
+        "rest-spread-spacing": [
+            1,
+            "never"
+        ],
+        // Sort ES6 imports alphabetically
+        "sort-imports": [
+            0,
+            {
+                "ignoreCase": true,
+                "ignoreDeclarationSort": false,
+                "ignoreMemberSort": false,
+                "memberSyntaxSortOrder": [
+                    "none",
+                    "all",
+                    "multiple",
+                    "single"
+                ]
+            }
+        ],
+        "symbol-description": 1,
+        "template-curly-spacing": [
+            1,
+            "never"
+        ],
+        "yield-star-spacing": [
+            1,
+            {
+                "before": false,
+                "after": true
+            }
+        ],
+        "@typescript-eslint/no-unused-vars": [
+            2,
+            {
+                "vars": "all",
+                "args": "all",
+                "ignoreRestSiblings": false,
+                "argsIgnorePattern": "^_",
+                "caughtErrors": "all"
+            }
+        ]
+    }
+}
