@@ -2,6 +2,7 @@
 
 import dotenv from "dotenv";
 import { Client } from "discord.js";
+// import ytdl from "ytdl-core";
 dotenv.config();
 
 const client = new Client();
