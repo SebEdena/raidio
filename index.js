@@ -80,8 +80,8 @@ function playRadio(message, url, bitrate) {
         voiceChannel.join()
             .then(connection => {
                 // utilisation de play --> possible avec fichiers ou des strems http ou des vidéos youtube (avec un pakage spécial)
-                const dispatcher = connection.play(ytdl("https://www.youtube.com/watch?v=5qap5aO4i9A"));
-                //const dispatcher = connection.playFile("F:/Docs/Musique/FH3 Vagrant/Albert Hammond Jr. - Caught By My Shadow [Audio].m4a");
+                //const dispatcher = connection.play(ytdl("https://www.youtube.com/watch?v=5qap5aO4i9A"));
+                const dispatcher = connection.play("https://listen.radioking.com/radio/18893/stream/67148");
                 message.channel.send("Playing radio");
             })
             .catch(error => console.error(error))
